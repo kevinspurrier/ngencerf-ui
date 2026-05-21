@@ -271,11 +271,10 @@ onMounted(() => {
 // Get footer infongenCERF
 const getFooterInformation = () => {
   makeProtectedApiCall<FormulationTabData>(`${ngencerfBaseUrl}/calibration/get_footer/`, {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": 'application/json'
-    },
-    body: ""
+    }
   }).then((result) => {
     serverInfo.value = result._data;
     if (serverInfo.value) {
@@ -287,7 +286,7 @@ const getFooterInformation = () => {
 // Get active directory config info
 const getConfigInformation = () => {
   makeProtectedApiCall<any>(`${ngencerfBaseUrl}/auth/config/`, {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": 'application/json'
     }
